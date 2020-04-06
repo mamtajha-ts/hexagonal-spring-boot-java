@@ -1,0 +1,63 @@
+plugins {
+    id "io.spring.dependency-management" version "1.0.9.RELEASE"
+}
+
+allprojects {
+    group = 'org.dfm'
+    version = '1.0-SNAPSHOT'
+    ext {
+        ver = [
+                junit        : '5.6.1',
+                junitPlatform: '1.6.1',
+                mockito      : '3.3.3',
+                cucumber     : '5.6.0',
+                lombok       : '1.18.12',
+                springBoot   : '2.2.6.RELEASE',
+                sl4j         : '1.7.30',
+                springdoc    : '1.3.0',
+                hsqldb       : '2.5.0'
+        ]
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java-library'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: ver.junit
+        testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: ver.junit
+        testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: ver.junitPlatform
+        testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: ver.junitPlatform
+        testImplementation group: 'org.mockito', name: 'mockito-core', version: ver.mockito
+        testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: ver.mockito
+        testImplementation group: 'io.cucumber', name: 'cucumber-java8', version: ver.cucumber
+        testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: ver.cucumber
+        testImplementation group: 'io.cucumber', name: 'cucumber-spring', version: ver.cucumber
+        compileOnly group: 'org.projectlombok', name: 'lombok', version: ver.lombok
+        annotationProcessor group: 'org.projectlombok', name: 'lombok', version: ver.lombok
+        testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: ver.lombok
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-dependencies:2.2.6.RELEASE")
+        }
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_11
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}

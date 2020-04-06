@@ -1,0 +1,8 @@
+apply plugin: 'io.spring.dependency-management'
+
+dependencies {
+    implementation project(':domain-api')
+    api group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: ver.springBoot
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: ver.springdoc
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: ver.springBoot
+}
