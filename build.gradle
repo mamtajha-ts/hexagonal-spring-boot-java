@@ -31,10 +31,13 @@ subprojects {
     }
 
     dependencies {
+        testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: ver.junit
         testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: ver.junit
         testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: ver.junit
         testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: ver.junitPlatform
         testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: ver.junitPlatform
+        testImplementation group: 'org.junit.platform', name: 'junit-platform-engine', version: ver.junitPlatform
+        testImplementation group: 'org.junit.platform', name: 'junit-platform-commons', version: ver.junitPlatform
         testImplementation group: 'org.mockito', name: 'mockito-core', version: ver.mockito
         testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: ver.mockito
         testImplementation group: 'io.cucumber', name: 'cucumber-java8', version: ver.cucumber
