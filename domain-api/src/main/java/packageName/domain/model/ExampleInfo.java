@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import javax.annotation.Nonnull;
 
 @Data
 @Builder
@@ -12,5 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ExampleInfo {
 
+  @Nonnull
   private List<Example> examples;
 }

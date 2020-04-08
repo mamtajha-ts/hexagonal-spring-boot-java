@@ -6,6 +6,7 @@ import packageName.domain.model.Example;
 import packageName.domain.port.ObtainExample;
 import packageName.repository.dao.ExampleDao;
 import packageName.repository.entity.ExampleEntity;
+import javax.annotation.Nonnull;
 
 public class ExampleRepository implements ObtainExample {
 
@@ -16,6 +17,7 @@ public class ExampleRepository implements ObtainExample {
   }
 
   @Override
+  @Nonnull
   public List<Example> getAllExamples() {
     return exampleDao.findAll().stream().map(ExampleEntity::toModel).collect(Collectors.toList());
   }
