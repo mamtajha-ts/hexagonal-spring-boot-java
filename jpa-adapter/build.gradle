@@ -1,6 +1,6 @@
 dependencies {
     compile project(':domain-api')
     api 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation group: 'org.hsqldb', name: 'hsqldb', version: ver.hsqldb
+    testImplementation 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
