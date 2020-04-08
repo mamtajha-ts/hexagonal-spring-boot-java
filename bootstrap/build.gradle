@@ -4,4 +4,6 @@ dependencies {
     implementation project(':jpa-adapter')
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-devtools'
+    // todo: this has to be removed
+    implementation 'com.h2database:h2'
 }
