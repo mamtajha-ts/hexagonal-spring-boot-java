@@ -1,0 +1,20 @@
+apply plugin: "jacoco"
+
+jacoco {
+    toolVersion = "0.8.5"
+}
+
+jacocoTestReport {
+
+    dependsOn = subprojects.test
+
+    files(subprojects.sourceSets.main.allSource.srcDirs)
+    files(subprojects.sourceSets.main.output)
+    files(subprojects.jacocoTestReport.executionData)
+
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        csv.enabled = false
+    }
+}
