@@ -73,13 +73,13 @@
         <artifactId>jib-maven-plugin</artifactId>
         <executions>
           <execution>
-					  <id>post-unit-test</id>
-				  	<phase>test</phase>
-					  <goals>
-						  <goal>dockerBuild</goal>
-					  </goals>
-				  </execution>
-			  </executions>
+	    <id>post-unit-test</id>
+	    <phase>test</phase>
+	    <goals>
+	      <goal>dockerBuild</goal>
+	    </goals>
+	  </execution>
+	</executions>
       </plugin>
     </plugins>
   </build>
